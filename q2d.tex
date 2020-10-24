@@ -1,0 +1,70 @@
+% !TeX root = ./TMA01.tex
+Placing generator matrix $G$ of part~(c) in standard form gives:
+\begin{alignat*}{2}
+\!\begin{aligned}
+G=\\
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 2 & 0 & 1 & 2\\
+1 & 0 & 2 & 0 & 1\\
+0 & 1 & 1 & 2 & 2
+\end{sysmatrix}
+&\!\begin{aligned}
+\ro{r_1\rightarrow r_1-2r_3}\\
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 0 & 1 & 0 & 1\\
+1 & 0 & 2 & 0 & 1\\
+0 & 1 & 1 & 2 & 2
+\end{sysmatrix}\\
+&\!\begin{aligned}
+\ro{r_2\rightarrow r_2-r_1}
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 0 & 1 & 0 & 1\\
+0 & 0 & 1 & 0 & 0\\
+0 & 1 & 1 & 2 & 2
+\end{sysmatrix}\\
+&\!\begin{aligned}
+\ro{\textrm{swap $r_2$, $r_3$}}
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 0 & 1 & 0 & 1\\
+0 & 1 & 1 & 2 & 2\\
+0 & 0 & 1 & 0 & 0
+\end{sysmatrix}\\
+&\!\begin{aligned}
+\ro{r_1\rightarrow r_1-r_3}
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 0 & 0 & 0 & 1\\
+0 & 1 & 1 & 2 & 2\\
+0 & 0 & 1 & 0 & 0
+\end{sysmatrix}\\
+&\!\begin{aligned}
+\ro{r_2\rightarrow r_2-r_3}
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+1 & 0 & 0 & 0 & 1\\
+0 & 1 & 0 & 2 & 2\\
+0 & 0 & 1 & 0 & 0
+\end{sysmatrix}\\
+\end{alignat*}
+Now using Theorem~7.6 of \hill page 70: if $G = [I_k | A]$ is the standard form generator matrix of an $[n,k]$-code $C$, then a parity-check matrix for $C$ is
+$H = [-A^T|I_{n-k}]$. So, in this case
+\begin{alignat*}{2}
+&\!\begin{aligned}
+H=\\
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+ 0 & -2 & 0 & 1 & 0\\
+-1 & -2 & 0 & 0 & 1
+\end{sysmatrix}
+&\!\begin{aligned}
+=\\
+\end{aligned}
+\begin{sysmatrix}{rrr|rr}
+ 0 & 1 & 0 & 1 & 0\\
+ 2 & 1 & 0 & 0 & 1
+\end{sysmatrix}.
+\end{alignat*}

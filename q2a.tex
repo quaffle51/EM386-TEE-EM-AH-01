@@ -1,0 +1,38 @@
+% !TeX root = ./TMA01.tex
+To determine which of the following codes are linear over the alphabet
+indicated use will be made of conditions (1) and (2) of \hill on page 47.
+\qsubpart
+\[
+	C_1 = \{00000, 11001, 10011, 01010\} \textrm{\ over\ } \Z_2
+\]
+To check this, we have to show that $C_1$ is closed under addition and scalar multiplication, so we have for scalar multiplication
+\[
+	\textbf{0}c = 00000,\qquad 1c = c
+\]
+for any codeword $c$ in $C_1$. For addition we have
+\[
+	c + c = 00000 \textrm{\ and\ } c + 00000 = c
+\]
+for any codeword $c$ in $C_1$ and
+\begin{align*}
+	11001 + 10011 = 01010 \in C_1,\\
+	11001 + 01010 = 10011 \in C_1,\\
+	10011 + 01010 = 11001 \in C_1.
+\end{align*}
+In view of the forgoing $C_1$ is linear as it passes both conditions of \hill on page 47.
+\qsubpart
+\[
+	C_2 = \{000, 001, 010, 100\} \textrm{\ over\ } \Z_2
+\]
+\begin{align*}
+	 001 + 010 = 011 \not\in C_2.
+\end{align*}
+$C_2$ is not linear as it fails under condition (1) of \hill on page 47.
+\qsubpart
+\[
+	C_3 = {00000, 11001, 10011, 01010} \textrm{\ over\ } \Z_3
+\]
+\begin{align*}
+	11001 + 10011 = 21012 \not\in C_3.
+\end{align*}
+$C_3$ is not linear as it fails under condition (1) of \hill on page 47..

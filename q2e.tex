@@ -1,0 +1,42 @@
+% !TeX root = ./TMA01.tex
+\qsubpart
+\begin{comment}
+Supposing that $D$ is a binary linear code having a generator matrix
+in which all the rows are of even weight. Then, to prove that all the codewords of $D$ have even weight consider the following.
+
+\[
+	w(\bm{a} + \bm{b}) = w(\bm{a}) + w(\bm{b}) - 2w(\bm{a} \cap \bm{b})
+\]
+\begin{align*}
+	w\left(\bm{a} + \bm{b} + \bm{c}\right) &= w(\bm{a} + \bm{b}) + w(\bm{c}) -2w((\bm{a} + \bm{b})\cap \bm{c})\\
+&=w(\bm{a}) + w(\bm{b}) - 2w(\bm{a} \cap \bm{b}) + w(\bm{c}) -2w((\bm{a} + \bm{b})\cap \bm{c})\\
+&=w(\bm{a}) + w(\bm{b}) + w(\bm{c}) - 2w(\bm{a} \cap \bm{b})  -2w((\bm{a} + \bm{b})\cap \bm{c})\\
+&=w(\bm{a}) + w(\bm{b}) + w(\bm{c}) - 2w(\bm{a}\cdot\bm{b})  -2w(\bm{a}\cdot \bm{c} + \bm{b}\cdot \bm{c})\\
+&=w(\bm{a}) + w(\bm{b}) + w(\bm{c}) - 2w(\bm{a}\bm{b})  -2w(\bm{a}\bm{c} + \bm{b}\bm{c})\\
+\end{align*}
+\begin{align*}
+	w\left((\bm{a} + \bm{b} + \bm{c}) + \bm{d}\right) &= w(\bm{a} + \bm{b} + \bm{c}) + w(\bm{d}) -2w((\bm{a} + \bm{b} + \bm{c})\cap \bm{d})
+\end{align*}	
+\begin{align*}
+	&= w(\bm{a}) + w(\bm{b}) + w(\bm{c}) - 2w(\bm{a}\bm{b})  -2w(\bm{a}\bm{c} + \bm{b}\bm{c})+ w(\bm{d}) -2w((\bm{a} + \bm{b} + \bm{c})\cap \bm{d})\\
+	&= w(\bm{a}) + w(\bm{b}) + w(\bm{c}) + w(\bm{d}) - 2w(\bm{a}\bm{b})  -2w(\bm{a}\bm{c} + \bm{b}\bm{c})-2w((\bm{a} + \bm{b} + \bm{c})\cap \bm{d})\\
+	&= w(\bm{a}) + w(\bm{b}) + w(\bm{c}) + w(\bm{d}) - 2w(\bm{a}\bm{b})  -2w(\bm{a}\bm{c} + \bm{b}\bm{c})-2w(\bm{a}\bm{d} + \bm{b}\bm{d} + \bm{c}\bm{d})\\
+\end{align*}
+
+Prove that, in a binary linear code, either all the 
+codewords have even weight or exactly half have even weight
+and half have odd weight.
+\end{comment}
+Supposing that $D$ is a binary linear code having a generator matrix
+in which all the rows are of even weight. A $2$-ary repetition code of even length over $GF(2)$ is an $[n,1]$-code with a generator matrix
+\[
+	\left[11\ldots1\right]
+\]
+is such a code. The weight of the single row of the generator matrix is of even weight because $n$ is an even number. The codewords obtained from this generator matrix are the all zero vector and the vector comprising the row of the generator matrix.  Both vectors have even weight thus showing that all codewords of $D$ obtained from the generator matrix having rows of equal weight also have even weight too.
+\qsubpart
+Supposing that $D$ is a binary linear code having a generator matrix
+in which all the rows are of odd weight. A $2$-ary repetition code of odd length over $GF(2)$ is an $[n,1]$-code with a generator matrix
+\[
+	\left[11\ldots1\right]
+\]
+is such a code. The weight of the single row of the generator matrix is of odd weight because $n$ is an odd number. The codewords of $D$ obtained from this generator matrix are the all zero vector and the vector comprising the row of the generator matrix.  The former codeword has even weight while the latter has odd weight because $n$ is an odd number.  This shows that half the codewords have even weight and half have odd weight when at least one row of the generator matrix has odd weight.

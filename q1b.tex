@@ -1,0 +1,59 @@
+% !TeX root = ./TMA01.tex
+Case 1: If the last digit of the codeword is an erasure then the value of the erasure, $e_{10}$, is given by:
+\[
+	e_{10} = \sum_{i=1}^9 ix_i \Mod{11}.
+\]
+Otherwise the erasure, $e_j$, will have occurred at location $j$, $j \in \{ 0,1,\ldots,9 \}$ in which case the value of $e_j$ is given by \eqref{eq:1.2}:
+\begin{align}
+\label{eq:1.2}
+	\sum_{i=1}^{j-1}ix_i  + je_j + \sum_{i=j+1}^{10}ix_i&\equiv 0 \Mod{11},\nonumber\\
+	\left(\sum_{i=1}^{j-1}ix_i + \sum_{i=j+1}^{10}ix_i\right)&\equiv -je_j \Mod{11},\nonumber\\
+	j^{-1}\left(\sum_{i=1}^{j-1}ix_i + \sum_{i=j+1}^{10}ix_i\right)&\equiv -e_j \Mod{11},\nonumber\\
+	-j^{-1}\left(\sum_{i=1}^{j-1}ix_i + \sum_{i=j+1}^{10}ix_i\right) \Mod{11} &\equiv e_j,
+\end{align}
+where $j^{-1}$ is the multiplicative inverse of j in $\Z_{11}$. So ISBN-10 is 1-erasure correcting.
+
+Case 2: Assume two erasures have occurred, $e_j$ and $e_k$, at locations $j$ and $k$ ($j\neq k, k>j$) in the codeword. Then, we have:
+\begin{align}
+\label{eq:1.3}
+	\sum_{i=1}^{j-1}ix_i + je_j + \sum_{i=j+1}^{k-1}ix_i + ke_k + \sum_{i=k+1}^{10}ix_i \equiv 0 \Mod{11}.
+\end{align}
+The congruence modulo 11~\eqref{eq:1.3} has two unknowns and therefore it is not possible to uniquely determine both erasures. Thus, ISBN-10 is not 2-erasure correcting.
+
+Given the received vector $04862?263X$, where ? denotes an undecodeable symbol, the correct ISBN-10 can be determined using \eqref{eq:1.2} as follows.
+
+The erasure has occurred at location six in the received vector therefore $j=6$ in this case.
+\[
+	-\left[6^{-1}\left(\sum_{i=1}^{5}ix_i + \sum_{i=7}^{10}ix_i \right)\right] \Mod{11} \equiv e_6.
+\]
+The multiplicative inverse of 6 in GF(11) is 2, so we have\marginnote{\textbf{H}~p.36}[-0.5cm]%
+\[
+	-2\left(\sum_{i=1}^{5}ix_i + \sum_{i=7}^{10}ix_i \right) \Mod{11} \equiv e_6.
+\]
+Now,
+\[
+	\sum_{i=1}^{5}ix_i = 0 + 2\cdot4 +3\cdot8 +4\cdot6 + 5\cdot2 = \pyc{print(0+2*4+3*8+4*6+5*2)},
+\]
+and
+\[
+	\sum_{i=7}^{10}ix_i = 7\cdot2 +8\cdot6 +9\cdot3 + 10\cdot10 = \pyc{print(7*2+8*6+9*3+10*10)}.
+\]
+Therefore,
+\[
+  -2(\pyc{print(0+2*4+3*8+4*6+5*2)} + \pyc{print(7*2+8*6+9*3+10*10)}) \Mod{11}\equiv e_6,
+\]
+\[
+	-2(\pyc{print(0+2*4+3*8+4*6+5*2+7*2+8*6+9*3+10*10)}) \Mod{11} \equiv e_6,
+\]
+\[
+	-\pyc{print(2*(0+2*4+3*8+4*6+5*2+7*2+8*6+9*3+10*10))} \Mod{11} \equiv e_6,
+\]
+\[
+	\pyc{print(-2*(0+2*4+3*8+4*6+5*2+7*2+8*6+9*3+10*10)%11)} = e_6.
+\]
+So, $e_6 = \pyc{print(11-2*(0+2*4+3*8+4*6+5*2+7*2+8*6+9*3+10*10)%11)}$.
+
+Check:
+\pyc{print(isbn_like_6 + r'\endinput')}
+
+\pyc{print(valid_6 + r'\endinput')}

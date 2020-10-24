@@ -1,0 +1,50 @@
+% !TeX root = ./TMA01.tex
+The ISBN-10s \pyc{print(isbn1 + r'\endinput')}, \pyc{print(isbn2 + r'\endinput')}  and \pyc{print(isbn3 + r'\endinput')} can be checked to see whether they are valid or not as follows:
+
+\qsubpart[1]
+\pyc{print(isbn_like_1 + r'\endinput')}
+
+\pyc{print(valid_1 + r'\endinput')}
+\qsubpart[2]
+\pyc{print(isbn_like_2 + r'\endinput')}
+
+\pyc{print(valid_2 + r'\endinput')}
+\qsubpart[3]
+\pyc{print(isbn_like_3 + r'\endinput')}
+
+\pyc{print(valid_3 + r'\endinput')}
+
+\newpage
+From the above, two of the three ISBN-10s are invalid; namely: \pyc{print(isbn1 + r'\endinput')} and \pyc{print(isbn3 + r'\endinput')}. Assuming a single transposition error has been made in adjacent positions, to determine if it is possible to correct these two ISBN-10s consider the following.
+
+Assume that $x_j$ and $x_{j+1}$, $j \in \{1,2,\ldots,9\}$ are the two adjacent digits that have been transposed.  Then,
+\begin{equation}
+\label{eq:1.1}
+	s = \sum_{\substack{i=1\\ i \neq j\\ i \neq j+1}}^{10}i x_i + (j+1)x_j + jx_{j+1} \equiv 0 \Mod{11})
+\end{equation}
+if and only if $x_j$ and $x_{j+1}$ are the two digits that have been transposed.  Otherwise,
+\[
+	s = \sum_{\substack{i=1\\ i \neq j\\ i \neq j+1}}^{10}i x_i + (j+1)x_j + jx_{j+1} \not\equiv 0 \Mod{11}
+\]
+and it is know that the chosen pair of digits $x_j$ and $x_{j+1}$ were not the ones that were transposed.  Thus, the strategy is to start with $j=1$ and evaluate \eqref{eq:1.1} and test to see if the result is congruent to $0 \Mod{11}$ and if so we have found the pair of digits that were transposed. Otherwise increment $j$ by one and then recalculate \eqref{eq:1.1} until the sum $s \equiv 0 \Mod{11}$.
+
+Performing the above strategy on \pyc{print(isbn1 + r'\endinput')} with $j=1$ (i.e. assume that the first two digits were the ones transposed) gives
+\pyc{print(isbn_like_4)}
+
+\pyc{print(valid_4)}
+
+Similarly, performing the above strategy on $\pyc{print(isbn3 + r'\endinput')}$ with $j=9$ (i.e. assume that the last two digits were the ones transposed) gives
+\pyc{print(isbn_like_5 + r'\endinput')}
+
+\pyc{print(valid_5 + r'\endinput')}
+
+
+
+
+
+
+
+
+
+
+

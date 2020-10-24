@@ -1,0 +1,14 @@
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|r|r|r|r|r|r|r|r|r|r|}
+			\hline
+			$i$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+			\hline
+			$x_i$ & $0$ & $4$ & $8$ & $6$ & $2$ & $7$ & $2$ & $6$ & $3$ \\
+			\hline
+			$ix_i$ & 0 & 8 & 24 & 24 & 10 & 42 & 14 & 48 & 27 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{$\sum_{i=1}^9 ix_i = 197 \textrm{ and } x_{10} \equiv 197 \Mod{11} \equiv 10$.}
+\end{table}\endinput

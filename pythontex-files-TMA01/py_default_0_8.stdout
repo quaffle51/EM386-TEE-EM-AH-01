@@ -1,0 +1,14 @@
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|r|r|r|r|r|r|r|r|r|r|}
+			\hline
+			$i$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+			\hline
+			$x_i$ & $1$ & $5$ & $8$ & $4$ & $8$ & $8$ & $5$ & $0$ & $8$ \\
+			\hline
+			$ix_i$ & 1 & 10 & 24 & 16 & 40 & 48 & 35 & 0 & 72 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{$\sum_{i=1}^9 ix_i = 246 \textrm{ and } x_{10} \equiv 246 \Mod{11} \equiv 4$.}
+\end{table}\endinput
