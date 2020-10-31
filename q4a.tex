@@ -1,1 +1,126 @@
 % !TeX root = ./TMA01.tex
+The code $D$ is a linear $[6,4]$-code over $GF(7)=\{0,1,\ldots,6\}$ and the codewords $\bm{x}=x_1x_2x_3x_4x_5x_6$ are defined by two parity-check equations
+\[
+	\sum_{i=1}^6 x_i\equiv 0 \Mod{7}\quad\textrm{and}\quad \sum_{i=1}^6 ix_i\equiv 0 \Mod{7}
+\]
+The algorithm that will correct any single transmission error in a codeword of $D$ is developed as follows.
+
+Assume that a single transmission error has occurred in the $j^{th}$ position of the received codeword. Then the value of $j \in \{1,2,\ldots,6\}$ can be found as follows.
+
+For the codeword as transmitted:
+\begin{align}
+\label{eq:4.1}
+	\sum_{i=1,i\neq j}^{6} x_i + x_j \equiv 0 \Mod{7},
+\end{align}
+\begin{align}
+\label{eq:4.2}
+	\sum_{i=1,i\neq j}^{6} ix_i + jx_j \equiv 0 \Mod{7}.
+\end{align}
+For the codeword as received assuming a single transmission error has occurred at coordinate position $j$ and that $x_j$ has been changed to $y_j$, then we have:
+\begin{align}
+\label{eq:4.3}
+	\sum_{i=1,i\neq j}^{6} x_i + y_j \equiv a \Mod{7},
+\end{align}
+\begin{align}
+\label{eq:4.4}
+	\sum_{i=1,i\neq j}^{6} ix_i + jy_j \equiv b \Mod{7}.
+\end{align}
+$\eqref{eq:4.3} - \eqref{eq:4.1}$ gives \eqref{eq:4.5}
+\begin{align}
+\label{eq:4.5}
+	y_j - x_j \equiv a \Mod{7}.
+\end{align}
+$\eqref{eq:4.4} - \eqref{eq:4.2}$ gives \eqref{eq:4.6}
+\begin{align}
+\label{eq:4.6}
+	jy_j - jx_j  \equiv b \Mod{7}.
+\end{align}
+$\eqref{eq:4.5}\times j$ gives \eqref{eq:4.7}
+\begin{align}
+\label{eq:4.7}
+	jy_j - jx_j \equiv ja \Mod{7}.
+\end{align}
+$\eqref{eq:4.7} - \eqref{eq:4.6}$ gives \eqref{eq:4.8}
+\begin{align}
+\label{eq:4.8}
+	ja - b \equiv 0 \Mod{7},\nonumber\\
+	ja \equiv b \Mod{7},\nonumber\\
+	j \equiv a^{-1}b \Mod{7},
+\end{align}
+where $a^{-1}$ is the multiplicative inverse of $a$ in $GF\{7\}$.
+\begin{table}[!htp]\centering
+\begin{tabular}{|l|rrrrrrr|r}\toprule
+$\times$ &0 &1 &2 &3 &4 &5 &6 \\\midrule
+0 &0 &0 &0 &0 &0 &0 &0 \\
+1 &0 &1 &2 &3 &4 &5 &6 \\
+2 &0 &2 &4 &6 &1 &3 &5 \\
+3 &0 &3 &6 &2 &5 &1 &4 \\
+4 &0 &4 &1 &5 &2 &6 &3 \\
+5 &0 &5 &3 &1 &6 &4 &2 \\
+6 &0 &6 &5 &4 &3 &2 &1 \\
+\bottomrule
+\end{tabular}
+\caption{$GF\{7\}$ multiplication table to find the multiplicative inverse of $j$.}\label{tab:16}
+\end{table}
+From \eqref{eq:4.2} knowing $j$ then $x_j$ is found as follows
+\begin{align}
+\label{eq:4.9}
+	\sum_{i=1,i\neq j}^{6} ix_i + jx_j \equiv 0 \Mod{7},\nonumber\\
+	\sum_{i=1,i\neq j}^{6} ix_i \equiv -jx_j \Mod{7}, \nonumber\\
+	-j^{-1}\sum_{i=1,i\neq j}^{6} ix_i \equiv x_j \Mod{7}.
+\end{align}
+Now assume that two digits of the received codeword have been transposed. Then regardless of which two digits were transposed $\sum_{i=1}^6 x_i\equiv 0 \Mod{7}$ is still true. 
+
+Let the two digits that were transposed be the ones at the $j^{th}$ and $k^{th}$ coordinate positions in the received codeword where $k>j$ and $j,k \in \{1,2,\ldots,6\}$ and further suppose that $x_i \neq x_j$. Then,
+\begin{align*}
+	\sum_{i=1,i\neq j,i\neq k}^{j-1}ix_i + kx_j + jx_k \not\equiv 0 \Mod{7}.
+\end{align*}
+Thus, algorithm is as follows.
+\begin{itemize}
+	\item If \eqref{eq:4.1} and \eqref{eq:4.2} are true then no errors have occurred and we therefore accept the received codeword.
+	\item If \eqref{eq:4.1} is true but not \eqref{eq:4.2} then a transposition error has occurred so request retransmission of the codeword as it cannot be corrected.
+	\item If both \eqref{eq:4.1} and \eqref{eq:4.2} are not true then assume a single error. Use \eqref{eq:4.8} to determine the location, $j$, of the error in the codeword and then use \eqref{eq:4.9} in conjunction with Table~\ref{tab:16} to find the multiplicative inverse of $j$ to determine the correct digit.
+\end{itemize}
+\qsubpart
+Given the received vector is $\bm{x} = 113235$ then using \eqref{eq:4.1} we have
+\begin{pycode}
+import math
+codeword = "113235"
+sum = 0
+sum1 = 0
+sum2 = 0
+for i in range(len(codeword)):
+	sum += int(codeword[i])
+	sum1 += (i+1)*int(codeword[i])
+	if (i+1) != 2:
+		sum2 += (i+1)*int(codeword[i])
+\end{pycode}
+\begin{align*}
+	a = \sum_{i=1}^{6} x_i \equiv \pyc{print(sum)} \Mod{7} \equiv \pyc{print(int(math.fmod(sum,7)))}  \Mod{7},
+\end{align*}
+and
+\begin{align*}
+	b = \sum_{i=1}^{6} ix_i \equiv \pyc{print(sum1)} \Mod{7} \equiv \pyc{print(int(math.fmod(sum1,7)))} \Mod{7}.
+\end{align*}
+Using \eqref{eq:4.8}
+\begin{align*}
+	j = a^{-1} b \Mod{7} = 1^{-1}\times 2 \Mod{7} \equiv 2 \Mod{7}.
+\end{align*}
+So the digit at location $2$ is the one that is in error. To determine the correct digit use \eqref{eq:4.9}.
+\begin{align*}
+	x_2 = -\sum_{i=1,i\neq 2}^{6} ix_i \equiv \pyc{print(-sum2)} \Mod{7} \equiv \pyc{print(int(math.fmod(-sum2,7)))}.
+\end{align*}
+Thus, the correct codeword is $103235$.
+\begin{pycode}
+codeword = "625152"
+sum  = 0
+sum1 = 0
+for i in range(len(codeword)):
+	sum += int(codeword[i])
+	sum1 += (i+1)*int(codeword[i])
+\end{pycode}
+\qsubpart
+Given the received codeword is \pyc{print(codeword)} then in this case 
+$\pyc{print("a={}".format(int(math.fmod(sum,7))))}$ and 
+$\pyc{print("b={}".format(int(math.fmod(sum1,7))))}$ so by the above algorithm a transposition error has occurred and so a request for retransmission of the codeword should be sent.
+

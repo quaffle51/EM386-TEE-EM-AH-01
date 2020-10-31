@@ -1,1 +1,48 @@
 % !TeX root = ./TMA01.tex
+\begin{pycode}
+a = math.comb(10, 1)*11**7
+b = math.comb(10, 2)*11**6
+c = math.comb(10, 3)*11**5
+d = math.comb(10, 4)*11**4
+e = math.comb(10, 5)*11**3
+f = math.comb(10, 6)*11**2
+g = math.comb(10, 7)*11**1
+h = math.comb(10, 8)*11**0
+
+y = a -b + c- d +e -f +g -h
+z = 11**8 - y
+\end{pycode}
+Assume that there can be ten sixes in a codeword of $C$ in which case both parity check equation should be zero and the codeword is valid. It can be easily shown that
+\begin{equation}
+\label{eq:4.10}
+	A = \sum_{i=1}^{10} i6\equiv \pyc{print(1*6+2*6+3*6+4*6+5*6+6*6+7*6+8*6+9*6+10*6)} \equiv \pyc{Mod(1*6+2*6+3*6+4*6+5*6+6*6+7*6+8*6+9*6+10*6,11)}\Mod{11},
+\end{equation}
+and
+\begin{equation}
+\label{eq:4.10}
+	B = \sum_{i=1}^{10} 6 \equiv 60 \equiv \pyc{Mod(60,11)} \Mod{11}.
+\end{equation}
+So according to \hill page~78 if $A=0$ or $B=0$ but not both, then at least two errors have been detected.  If two errors have occurred then that means there cannot be nine or ten sixes in any codeword of $C$. Note that the transposition of two digits does not affect the outcome and therefore can be discounted.
+
+Using a similar argument to that of part~(d) above but this time for the $[10,8]$-code defined over $GF\{11\}$ we can summarise the previous argument in Table~\ref{tab:17} proving that there are $\pyc{print(z)}$ codewords in $C$.
+
+Thus, from the summary Table~\ref{tab:17} it is proved that there are $82644629$ codewords in $C$ as stated by \hill page~76.
+\begin{table}[!htp]\centering
+\begin{tabular}{lrrrrrr}\toprule
+$n$ &$k$ &$a=$ $n\choose k$ &$b=11^{8-k}$ &sign &$\textrm{sign}\times a\times b$ \\\midrule
+10 &1 &10 &19487171 &1 &194871710 \\
+10 &2 &45 &1771561 &-1 &-79720245 \\
+10 &3 &120 &161051 &1 &19326120 \\
+10 &4 &210 &14641 &-1 &-3074610 \\
+10 &5 &252 &1331 &1 &335412 \\
+10 &6 &210 &121 &-1 &-25410 \\
+10 &7 &120 &11 &1 &1320 \\
+10 &8 &45 &1 &-1 &-45 \\
+\multicolumn{5}{c}{} &131714252 \\
+\multicolumn{6}{r}{$11^7 - 131714252 = 82644629$} \\
+\bottomrule
+\end{tabular}
+\caption{Summary of derivation of the number of codewords in $C$ using a similiar derivation to that in part~(d).}\label{tab:17}
+\rule{\textwidth}{2pt}
+\end{table}
+

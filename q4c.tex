@@ -1,1 +1,35 @@
-% !TeX root = ./TMA01.tex
+% !TeX root = ./TMA1.tex
+Using the two parity-check equations it can be proved that no codeword of $D$ contains five or six "6"s as follows.
+\begin{comment}
+\begin{align*}
+	\sum_{i=1,i\neq j}^6i6 +j6 &\equiv B \Mod{7},\\
+	\sum_{i=1,i\neq j}^6i6 +j6 - j6 + jx_j &\equiv B - j6 + jx_j\Mod{7},\\
+	\sum_{i=1,i\neq j}^6i6 +j6 &\equiv B \equiv 0 \Mod{7}.
+\end{align*}
+Now, for $j \in \{1,2,\ldots,6\}$ and $x_j \in \{0,1,\ldots.6\}$ we have $-j6 + jx_j\equiv 0 \Mod{7}$ if and only if $x_j\equiv 6 \Mod{7}$.
+
+\begin{align*}
+	\sum_{i=1}^6 6 -6 + x_j &\equiv A - 6 + x_j \Mod{7},\\
+	 &\equiv 1 - 6 + x_j \Mod{7},\\
+	  &\equiv -5 + x_j \Mod{7}.
+\end{align*}
+Now, for $j \in \{1,2,\ldots,6\}$ and $x_j \in GF(6)$ we have $-5 + x_j\equiv 0 \Mod{7}$ if and only if $x_j \equiv 5 \Mod{7}$.
+
+According to \hill page~78 case~(3) for the case where $A=0$ or $B=0$ but not both, then at least two errors have been detected in the codeword. In view of this a valid codeword of $D$ cannot contain five or six "6"s.
+\end{comment}
+\begin{pycode}
+def Mod(a,b):
+	print(int(math.fmod(a,b)))
+
+\end{pycode}
+Assume that there can be six sixes in a codeword of $D$ in which case both parity check equation should be zero. It can be easily shown that
+\begin{equation}
+\label{eq:4.10}
+	A = \sum_{i=1}^6 i6\equiv \pyc{print(1*6+2*6+3*6+4*6+5*6+6*6)} \equiv \pyc{Mod(1*6+2*6+3*6+4*6+5*6+6*6,7)}\Mod{7},
+\end{equation}
+and
+\begin{equation}
+\label{eq:4.10}
+	B = \sum_{i=1}^6 6 \equiv 36 \equiv 1 \Mod{7}.
+\end{equation}
+So according to \hill page~78 if $A=0$ or $B=0$ but not both, then at least two errors have been detected.  If two errors have occurred then that means there cannot be five or six sixes in any codeword of $D$. Note that the transposition of two digits does not affect the outcome and therefore can be discounted.

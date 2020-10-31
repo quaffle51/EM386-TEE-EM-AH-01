@@ -1,1 +1,73 @@
 % !TeX root = ./TMA01.tex
+\begin{comment}
+$D$ is a linear $[7,4]$-code and as such has $7^4$ codewords. In the matrix multiplication each $u_i$, $i\in\{1,2,3,4\}$ and $u_i \in GF(7)$:
+\begin{align*}
+\bm{u}G &=
+\begin{bmatrix}
+  u_1 & u_2 & u_3 & u_4
+\end{bmatrix}
+\begin{bmatrix}
+ 1&   0&   0&   0&   2&   4\\
+ 0&   1&   0&   0&   3&   3\\
+ 0&   0&   1&   0&   4&   2\\
+ 0&   0&   0&   1&   5&   1
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+	u_1&u_2&u_3&u_4& 2u_1 + 3u_2 + 4u_3 + 5u_4& 4u_1 + 3u_2 + 2u_3 + u_4
+\end{bmatrix}
+\end{align*}
+we see that for each choice of one of the seven possible digits for $u_1$ there is an equal number of choices of digits for $u_2$. For each choice of $u_2$ there is an equal number of choices of digits for $u_3$, and in turn for each choice of $u_3$ there is an equal number of choices for $u_4$.  In view of this there are $7^4 = \pyc{print(7**4)}$ codewords in $D$ as each multiplication $\bm{u}G$ results in a unique codeword in $D$. This is true regardless of which $u_i$ we start with.
+
+Now, assume that $u_1=6$ and for this choice of digit there is a choice of one of seven digits for $u_2$; there is an equal number of choices of digits for $u_3$, and in turn for each choice of $u_3$ there is an equal number of choices for $u_4$.  In view of this there are $7^3 = \pyc{print(7**3)}$ codewords in $D$ regardless of which $u_i$ we start with.
+
+Assume that $u_1=u_2=6$ then for this choice of digits for $u_1$ and $u_2$ we have a choice of one of seven digits for $u_3$ and for each $u_3$ we have a choice of one of seven digits for $u_4$. Thus, there are $7^2 = \pyc{print(7**2)}$ codewords in $D$ and this is true regardless of which pair of digits we choose to start with.
+
+Assume that $u_1=u_2=u_3=6$ then for this choice of digits for $u_1$, $u_2$ and $u_3$ we have a choice of one of seven digits for $u_4$. Thus, there are $7^1 = \pyc{print(7**1)}$ codewords in $D$ and this is true regardless of which triple of coordinate positions we choose to start with.
+
+Finally, assume that $u_1=u_2=u_3=u_4=6$ then for this choice of digits we have no further freedom to choice any other digits. Thus, there is only one codeword in $D$, i.e. $7^0$, and that codeword is $6   6   6   6   0   4$.
+
+In what follows there are seven symbols in the alphabet of $D$ and these are chosen to be over $GF\{7\}$ and there are a total of $q^k = 7^4$ distinct codewords in $D$.
+\begin{itemize}
+\item
+The number of codewords of $D$ that have the symbol "6" in any \textit{single} specified coordinate position is as follows:
+
+The probability of a given symbol, say "6", appearing at any specified coordinate position of a codeword of $D$ is $1/7$. Therefore the total number of the symbol "6" appearing at a specified coordinate position is $1/7 \times 7^4 = 7^3$.
+\item
+The number of codewords of $D$ that have the symbol "6" in any \textit{pair} of specified coordinate position is as follows:
+
+The probability of a pair of sixes appearing at any specified pair of coordinate positions is $1/7\times1/7$. Therefore the total number of the symbol "6" appearing at a specified pair of coordinate position is $1/7^2 \times 7^4 = 7^2$.
+\item
+The number of codewords of $D$ that have the symbol "6" in any \textit{triple} of specified coordinate positions is as follows:
+
+The probability of a triple of "6" appearing at any specified triple of coordinate positions is $1/7\times1/7\times1/7$. Therefore the total count of the symbol "6" appearing at a specified triple of coordinate position is $1/7^3 \times 7^4 = 7$.
+\item
+The number of codewords of $D$ that have the symbol "6" in any \textit{quadruple} of specified coordinate positions is as follows:
+
+The probability of a quadruple of "6" appearing at any specified quadruple of coordinate positions is $1/7\times1/7\times1/7\times1/7$. Therefore the the total number of the symbol "6" appearing at a specified quadruple of coordinate position is $1/7^4 \times 7^4 = 7^0$.
+\end{itemize}
+\end{comment}
+The linear code $D$ is a [6,4]-code over $GF(7)$ which has a generator matrix $G$.  $D$ contains $q^k =7^4$ codewords so can be used to transmit any one of $7^4$ distinct messages. Each of these codeword can be generated from a message vector $\bm{u}=u_1u_2u_3u_4$, where each $u_i \in GF(7)$, as follows
+\begin{align*}
+\bm{x} = \bm{u}G &=
+\begin{bmatrix}
+  u_1 & u_2 & u_3 & u_4
+\end{bmatrix}
+\begin{bmatrix}
+ 1&   0&   0&   0&   a_{11}&   a_{12}\\
+ 0&   1&   0&   0&   a_{21}&   a_{22}\\
+ 0&   0&   1&   0&   a_{31}&   a_{32}\\
+ 0&   0&   0&   1&   a_{41}&   a_{42}
+\end{bmatrix}\\
+&=u_1 u_2 u_3 u_4 \sum_i a_{i1}u_i  \sum_i a_{i2}u_i.
+\end{align*}
+Assume now that we choose \textit{one} coordinate position to be the symbol "6". Then we are free to choose any symbol from $GF(7)$ for any other three coordinate positions.  We have no choice of the symbols for the remaining two coordinate positions because the two parity check equations have to be satisfied. Thus, if we fix one coordinate position we have $7\times7\times7=7^3$ choices for three other symbols at three other coordinate positions.  Therefore, the number of codewords of $D$ that have the symbol "6" in any one specified coordinate position is $7^3$.
+
+Assume now that we choose \textit{two} coordinate positions to be the symbol "6". Then we are free to choose any symbol from $GF(7)$ for any other two coordinate positions.  We have no choice of the symbols for the remaining two coordinate positions because the two parity check equations have to be satisfied. Thus, if we fix two coordinate position we have $7\time7\times7=7^2$ choices for two other symbols at two other coordinate positions.  Therefore, the number of codewords of $D$ that have the symbol "6" in any two specified coordinate positions is $7^2$.
+
+Assume now that we choose \textit{three} coordinate positions to be the symbol "6". Then we are free to choose any symbol from $GF(7)$ for any other one coordinate position.  We have no choice of the symbols for the remaining two coordinate positions because the two parity check equations having to be satisfied. Thus, if we fix three coordinate position we have $7$ choices for one other symbol at one other coordinate position.  Therefore, the number of codewords of $D$ that have the symbol "6" in any three specified coordinate positions is $7$.
+
+Assume now that we choose \textit{four} coordinate position to be the symbol "6". Then we are \textit{not} free to choose any symbol from $GF(7)$ for any other coordinate position because the two parity check equations have to be satisfied. Thus, if we fix four coordinate positions this is the only (one) choice we can make.  Therefore, the number of codewords of $D$ that have the symbol "6" in any four specified coordinate positions is $7^0=1$.
+
+
+

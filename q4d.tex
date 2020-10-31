@@ -1,1 +1,71 @@
 % !TeX root = ./TMA01.tex
+By the inclusion-exclusion principle, in which the sets $A$, $B$ to $F$ are the sets of codewords in $D$ that have the symbol "6" in the first, second, to the sixth coordinate positions respectively, we have
+\begin{align*}
+	|A \cup &B \cup C \cup D \cup E \cup F | =
+	|A| + |B| + |C| + |D|+ |E|+ |F|\\\\
+	&-|A \cap B|
+	 -|A \cap C|
+	 -|A \cap D|
+	 -|A \cap E|
+	 -|A \cap F|\\
+	&-|B \cap C|
+	 -|B \cap D|
+	 -|B \cap E|
+	 -|B \cap F|\\
+	&-|C \cap D|
+	 -|C \cap E|
+	 -|C \cap F|\\
+	&-|D \cap E|
+	 -|D \cap F|\\
+	&-|E \cap F|\\
+	&+|A\cap B\cap C|
+	 +|A\cap B\cap D|
+	 +|A\cap B\cap E|
+	 +|A\cap B\cap F|\\
+	&+|A\cap C \cap D|
+	 +|A\cap C \cap E|
+	 +|A\cap C \cap F|\\
+	&+|A\cap D \cap E|
+	 +|A\cap D \cap F|\\
+	&+|B\cap C\cap D|
+	 +|B\cap C\cap E|
+	 +|B\cap C\cap F|\\
+	&+|B\cap D\cap E|
+	 +|B\cap D\cap F|\\
+	&+|B\cap E\cap F|\\
+	&+|C\cap D\cap E|
+	 +|C\cap D\cap F|\\
+	&+|C\cap E\cap F|\\
+	&-|A\cap B\cap C\cap D|
+	 -|A\cap B\cap C\cap E|
+	 -|A\cap B\cap C\cap F|\\
+	&-|A\cap B\cap D\cap E|
+	 -|A\cap B\cap D\cap F|
+	 -|A\cap B\cap E\cap F|\\
+	&-|A\cap C\cap D\cap E|
+	 -|A\cap C\cap D\cap F|
+	 -|A\cap C\cap E\cap F|\\
+	&-|A\cap D\cap E\cap F|\\
+	&-|B\cap C\cap D\cap E|
+	 -|B\cap C\cap D\cap F|
+	 -|B\cap C\cap E\cap F|\\
+	&-|B\cap D\cap E\cap F|\\
+	&-|C\cap D\cap E\cap F|\\
+	&+|A\cap B\cap C\cap D\cap E|
+	 +|A\cap B\cap C\cap D\cap F|\\
+	&+|A\cap B\cap C\cap E\cap F|
+	+|A\cap B\cap D\cap E\cap F|\\
+	&+|A\cap C\cap D\cap E\cap F|\\
+	&+|B\cap C\cap D\cap E\cap F|\\
+	&-|A\cap B\cap C\cap D\cap E\cap F|.
+\end{align*}
+In the above we have six sets of order $1$, $6\choose 1$ $=\pyc{print (math.comb(6, 1))}$; fifteen sets of order $2$, $6\choose 2 $ $=\pyc{print (math.comb(6, 2))}$; twenty sets of order $3$, $6\choose 3 $ $=\pyc{print (math.comb(6, 3))}$; fifteen set of order 4, $6\choose 4 $ $=\pyc{print (math.comb(6, 4))}$. There are six sets of order $5$; and one set of order $6$.  It is not possible to have codewords with five or more sixes in them and therefore the sets of order $5$ and order $6$ can be discounted. Now, the number of codewords that have the symbol "6" in any specified position is $7^3$; the number of codewords that have the symbol "6" in any specified pair of coordinates is $7^2$. The number of codewords that have the symbol "6" in any specified triple of coordinate positions is $7^1$ and the number of codewords with the symbol "6" in any specified quadruple of coordinate positions is $7^0$. Thus, the number of codewords of $D$ that contain the symbol "6" is
+\[
+	6 \cdot 7^3 - 15 \cdot 7^2 + 20 \cdot 7^1 - 15 \cdot 7^0.
+\]
+As there are $q^k$ codewords in a $[n,k]$-code over $GF\{q\}$ then we have in the case of $D$, which is a $[6,4]$-code over $GF(7)$, $7^4$ codewords. Thus, the number of codewords of $D$ that do not contain the symbol "6" is
+\[
+	7^4 -(6 \cdot 7^3 - 15 \cdot 7^2 + 20 \cdot 7^1 - 15) = 
+	\pyc{print(7**4 -(6 * 7**3 - 15 * 7**2 + 20 * 7**1 - 15 * 7**0))},
+\]
+as required.
