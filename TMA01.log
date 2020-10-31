@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.10)  31 OCT 2020 18:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.10)  31 OCT 2020 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1122,11 +1122,22 @@ Overfull \hbox (1.48189pt too wide) detected at line 69
 ) [6] (./q1d.tex)) [7]
 \openout2 = `q2.aux'.
 
- (./q2.tex (./q2a.tex) (./q2b.tex) (./q2c.tex) (./q2d.tex [8
+ (./q2.tex (./q2a.tex) (./q2b.tex [8
 
 
 
-]) (./q2e.tex [9])) [10]
+]) (./q2c.tex)
+(./q2d.tex [9
+
+]) (./q2e.tex
+Package marginnote Info: Margin note 10.1 is on absolute page 10 on input line 
+32.
+Package marginnote Info: right page because not two side mode on input line 32.
+
+Package marginnote Info: xpos seems to be 395.43797pt on input line 32.
+)) [10
+
+]
 \openout2 = `q3.aux'.
 
  (./q3.tex (./q3a.tex
@@ -1204,13 +1215,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22396 strings out of 479917
- 424536 string characters out of 5882705
- 795035 words of memory out of 5000000
- 38103 multiletter control sequences out of 15000+600000
- 556743 words of font info for 134 fonts, out of 8000000 for 9000
+ 22368 strings out of 479917
+ 424133 string characters out of 5882705
+ 793034 words of memory out of 5000000
+ 38083 multiletter control sequences out of 15000+600000
+ 554402 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,28n,118p,1079b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,24n,118p,1079b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
 /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
@@ -1228,14 +1239,13 @@ xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on TMA01.pdf (22 pages, 239932 bytes).
+live/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on TMA01.pdf (22 pages, 221949 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+ 155 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 14861 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 13837 words of extra memory for PDF output out of 14400 (max. 10000000)
 
