@@ -158,11 +158,11 @@ print(11-2*(0+2*4+3*8+4*6+5*2+7*2+8*6+9*3+10*10)%11)
 print(isbn_like_6 + r'\endinput')
 =>PYTHONTEX#py#default#0#27#c####q1b.tex#59#
 print(valid_6 + r'\endinput')
-=>PYTHONTEX#py#default#0#28#c####q1c.tex#36#
+=>PYTHONTEX#py#default#0#28#c####q1c.tex#37#
 print(isbn_i)
-=>PYTHONTEX#py#default#0#29#c####q1c.tex#41#
+=>PYTHONTEX#py#default#0#29#c####q1c.tex#42#
 print(-4*(23 + 183 + 9))
-=>PYTHONTEX#py#default#0#29#c####q1c.tex#41#
+=>PYTHONTEX#py#default#0#29#c####q1c.tex#42#
 print(-4*(23 + 183 + 9))
 =>PYTHONTEX#py#default#0#30#code####q3a.tex#27#
 c = ('00000', '100110','010101','001111','110011','101001','011010','111100')
