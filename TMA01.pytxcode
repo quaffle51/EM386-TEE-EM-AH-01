@@ -170,7 +170,7 @@ c = ('00000', '100110','010101','001111','110011','101001','011010','111100')
 print("{}\ {}\ {}\ {}\ {}\ {}\ {}\ {}".format(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7]))
 =>PYTHONTEX#py#default#0#31#c####q3a.tex#32#
 print("{}\ {}\ {}\ {}\ {}\ {}\ {}\ {}".format(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7]))
-=>PYTHONTEX#py#default#0#32#code####q4a.tex#86#
+=>PYTHONTEX#py#default#0#32#code####q4a.tex#85#
 import math
 codeword = "113235"
 sum = 0
@@ -181,42 +181,42 @@ for i in range(len(codeword)):
 	sum1 += (i+1)*int(codeword[i])
 	if (i+1) != 2:
 		sum2 += (i+1)*int(codeword[i])
-=>PYTHONTEX#py#default#0#33#c####q4a.tex#100#
+=>PYTHONTEX#py#default#0#33#c####q4a.tex#99#
 print(sum)
-=>PYTHONTEX#py#default#0#34#c####q4a.tex#100#
+=>PYTHONTEX#py#default#0#34#c####q4a.tex#99#
 print(int(math.fmod(sum,7)))
-=>PYTHONTEX#py#default#0#33#c####q4a.tex#100#
+=>PYTHONTEX#py#default#0#33#c####q4a.tex#99#
 print(sum)
-=>PYTHONTEX#py#default#0#34#c####q4a.tex#100#
+=>PYTHONTEX#py#default#0#34#c####q4a.tex#99#
 print(int(math.fmod(sum,7)))
-=>PYTHONTEX#py#default#0#35#c####q4a.tex#104#
+=>PYTHONTEX#py#default#0#35#c####q4a.tex#103#
 print(sum1)
-=>PYTHONTEX#py#default#0#36#c####q4a.tex#104#
+=>PYTHONTEX#py#default#0#36#c####q4a.tex#103#
 print(int(math.fmod(sum1,7)))
-=>PYTHONTEX#py#default#0#35#c####q4a.tex#104#
+=>PYTHONTEX#py#default#0#35#c####q4a.tex#103#
 print(sum1)
-=>PYTHONTEX#py#default#0#36#c####q4a.tex#104#
+=>PYTHONTEX#py#default#0#36#c####q4a.tex#103#
 print(int(math.fmod(sum1,7)))
-=>PYTHONTEX#py#default#0#37#c####q4a.tex#112#
+=>PYTHONTEX#py#default#0#37#c####q4a.tex#111#
 print(-sum2)
-=>PYTHONTEX#py#default#0#38#c####q4a.tex#112#
+=>PYTHONTEX#py#default#0#38#c####q4a.tex#111#
 print(int(math.fmod(-sum2,7)))
-=>PYTHONTEX#py#default#0#37#c####q4a.tex#112#
+=>PYTHONTEX#py#default#0#37#c####q4a.tex#111#
 print(-sum2)
-=>PYTHONTEX#py#default#0#38#c####q4a.tex#112#
+=>PYTHONTEX#py#default#0#38#c####q4a.tex#111#
 print(int(math.fmod(-sum2,7)))
-=>PYTHONTEX#py#default#0#39#code####q4a.tex#114#
+=>PYTHONTEX#py#default#0#39#code####q4a.tex#113#
 codeword = "625152"
 sum  = 0
 sum1 = 0
 for i in range(len(codeword)):
 	sum += int(codeword[i])
 	sum1 += (i+1)*int(codeword[i])
-=>PYTHONTEX#py#default#0#40#c####q4a.tex#123#
+=>PYTHONTEX#py#default#0#40#c####q4a.tex#122#
 print(codeword)
-=>PYTHONTEX#py#default#0#41#c####q4a.tex#124#
+=>PYTHONTEX#py#default#0#41#c####q4a.tex#123#
 print("a={}".format(int(math.fmod(sum,7))))
-=>PYTHONTEX#py#default#0#42#c####q4a.tex#125#
+=>PYTHONTEX#py#default#0#42#c####q4a.tex#124#
 print("b={}".format(int(math.fmod(sum1,7))))
 =>PYTHONTEX#py#default#0#43#code####q4c.tex#20#
 def Mod(a,b):

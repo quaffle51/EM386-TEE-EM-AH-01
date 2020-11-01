@@ -59,7 +59,7 @@ The linear code $D$ is a [6,4]-code over $GF(7)$ which has a generator matrix $G
  0&   0&   1&   0&   a_{31}&   a_{32}\\
  0&   0&   0&   1&   a_{41}&   a_{42}
 \end{bmatrix}\\
-&=u_1 u_2 u_3 u_4 \sum_i a_{i1}u_i  \sum_i a_{i2}u_i.
+&=u_1 u_2 u_3 u_4 \sum_{i=1}^4 a_{i1}u_i  \sum_{i=1}^4 a_{i2}u_i.
 \end{align*}
 Assume now that we choose \textit{one} coordinate position to be the symbol "6". Then we are free to choose any symbol from $GF(7)$ for any other three coordinate positions.  We have no choice of the symbols for the remaining two coordinate positions because the two parity check equations have to be satisfied. Thus, if we fix one coordinate position we have $7\times7\times7=7^3$ choices for three other symbols at three other coordinate positions.  Therefore, the number of codewords of $D$ that have the symbol "6" in any one specified coordinate position is $7^3$.
 

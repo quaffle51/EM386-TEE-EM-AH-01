@@ -5,7 +5,7 @@ The code $D$ is a linear $[6,4]$-code over $GF(7)=\{0,1,\ldots,6\}$ and the code
 \]
 The algorithm that will correct any single transmission error in a codeword of $D$ is developed as follows.
 
-Assume that a single transmission error has occurred in the $j^{th}$ position of the received codeword. Then the value of $j \in \{1,2,\ldots,6\}$ can be found as follows.
+Assume that a single transmission error has occurred in the $j^{th}$ coordinate position of the received codeword. Then the value of $j \in \{1,2,\ldots,6\}$ can be found as follows.
 
 For the codeword as transmitted:
 \begin{align}
@@ -49,7 +49,7 @@ $\eqref{eq:4.7} - \eqref{eq:4.6}$ gives \eqref{eq:4.8}
 \end{align}
 where $a^{-1}$ is the multiplicative inverse of $a$ in $GF\{7\}$.
 \begin{table}[!htp]\centering
-\begin{tabular}{|l|rrrrrrr|r}\toprule
+\begin{tabular}{l|rrrrrrrr}
 $\times$ &0 &1 &2 &3 &4 &5 &6 \\\midrule
 0 &0 &0 &0 &0 &0 &0 &0 \\
 1 &0 &1 &2 &3 &4 &5 &6 \\
@@ -58,7 +58,6 @@ $\times$ &0 &1 &2 &3 &4 &5 &6 \\\midrule
 4 &0 &4 &1 &5 &2 &6 &3 \\
 5 &0 &5 &3 &1 &6 &4 &2 \\
 6 &0 &6 &5 &4 &3 &2 &1 \\
-\bottomrule
 \end{tabular}
 \caption{$GF\{7\}$ multiplication table to find the multiplicative inverse of $j$.}\label{tab:16}
 \end{table}
@@ -73,7 +72,7 @@ Now assume that two digits of the received codeword have been transposed. Then r
 
 Let the two digits that were transposed be the ones at the $j^{th}$ and $k^{th}$ coordinate positions in the received codeword where $k>j$ and $j,k \in \{1,2,\ldots,6\}$ and further suppose that $x_i \neq x_j$. Then,
 \begin{align*}
-	\sum_{i=1,i\neq j,i\neq k}^{j-1}ix_i + kx_j + jx_k \not\equiv 0 \Mod{7}.
+	\sum_{i=1,i\neq j,i\neq k}^{6}ix_i + kx_j + jx_k \not\equiv 0 \Mod{7}.
 \end{align*}
 Thus, algorithm is as follows.
 \begin{itemize}
@@ -98,7 +97,7 @@ for i in range(len(codeword)):
 \begin{align*}
 	a = \sum_{i=1}^{6} x_i \equiv \pyc{print(sum)} \Mod{7} \equiv \pyc{print(int(math.fmod(sum,7)))}  \Mod{7},
 \end{align*}
-and
+and using \eqref{eq:4.2} we have
 \begin{align*}
 	b = \sum_{i=1}^{6} ix_i \equiv \pyc{print(sum1)} \Mod{7} \equiv \pyc{print(int(math.fmod(sum1,7)))} \Mod{7}.
 \end{align*}
