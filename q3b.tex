@@ -1,5 +1,5 @@
 % !TeX root = ./TMA01.tex
-\begin{table}[!htp]\centering
+\begin{table}[!h]\centering
 \begin{tabular}{lrrrrr|rr}\toprule
 $x_1$ &$x_2$ &$x_3$ &$x_4$ &$x_5$ &$x_6$ &probability \\\midrule
 0 &0 &0 &0 &0 &0 &$(1-r)^6$ \\
@@ -21,7 +21,7 @@ From Table~\ref{tab:12} is can be seen that the probability of a received vector
 	P_{corr} &=(1-r)^6 + 6r(1-r)^5 + r^2(1-r)^4,\\
 	&=(1-r)^4\left[(1-r)^2 + 6r(1-r) + r^2,\right],\\
 	&=(1-r)^4\left[(1-2r + r^2 + 6r-6r^2 + r^2,\right],\\
-	&=(1-r)^4\left[(1+ 4r + 4r^2,\right],
+	&=(1-r)^4\left[(1+ 4r - 4r^2,\right],
 \end{align*}
 as required.
 
@@ -41,9 +41,11 @@ $x_1$ &$x_2$ &$x_3$ &$x_4$ &$x_5$ &$x_6$ &probability \\\midrule
 \end{tabular}
 \caption{Probability of a received vector being correctly decoded as each of the codewords of weight 3.}\label{tab:13}
 \end{table}
+\begin{align*}
+	P_{corr} = (1-r)^3(1-s)^3 &+ 3s(1-r)^3(1-s)^2 + 3r(1-r)^2(1-s)^3\\ &+rs(1-r)^2(1-s)^2,\nonumber\\
+\end{align*}
 \begin{align}
 \label{eq:3.1}
-	P_{corr} &= (1-r)^3(1-s)^3 + 3s(1-r)^3(1-s)^2 + 3r(1-r)^2(1-s)^3 +rs(1-r)^2(1-s)^2,\nonumber\\
 	&= (1-r)^2(1-s)^2\left[(1-r)(1-s) + 3s(1-r) + 3r(1-s) + rs	\right],\nonumber\\
 	&= (1-r)^2(1-s)^2\left[1-r-s + rs +3s -3rs+3r-3rs+rs\right],\nonumber\\
 	&= (1-r)^2(1-s)^2\left[1 + 2r + 2s -4rs\right],
@@ -53,9 +55,9 @@ as required.
 Using Table~\ref{tab:14} the probability of a received vector being correctly decoded as each of the codewords of weight 4 is given by \eqref{eq:3.2}.
 \begin{align}
 \label{eq:3.2}
-	P_{corr} &= (1-r)^2(1-s)^4 + 2r(1-r)(1-s)^4 + 4s(1-r)^2(1-s)^3 + r^2(1-s)^4.
+	P_{corr} = (1-r)^2(1-s)^4 &+ 2r(1-r)(1-s)^4 + 4s(1-r)^2(1-s)^3\nonumber\\ &+ r^2(1-s)^4.
 \end{align}
-\begin{table}[!htp]\centering
+\begin{table}[!h]\centering
 \begin{tabular}{lrrrrr|rr}\toprule
 $x_1$ &$x_2$ &$x_3$ &$x_4$ &$x_5$ &$x_6$ &probability \\\midrule
 0 &0 &1 &1 &1 &1 &$(1-r)^2(1-s)^4$ \\

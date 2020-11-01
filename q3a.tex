@@ -82,7 +82,7 @@ Assuming the codewords are transmitted over a binary symmetric channel that has 
 \begin{align*}
 	P_{err} = 1 - P_{corr}(C)
 \end{align*}
-where $P_{corr}(C)$ is given by
+where $P_{corr}(C)$ is given by\marginnote{\hill p.60 Theorem~6.7.}
 \[
 	P_{corr}(C) = \sum_{i=0}^n\alpha_i p^i(1-p)^{n-i}.
 \]
@@ -93,7 +93,6 @@ Here, $n=6$ with $\alpha_0=1, \alpha_1=6, \alpha_2=1$ and $\alpha_3,\ldots,\alph
 	&=(1-p)^6 + 6 p(1-p)^5 + p^2(1-p)^4,\\
 	&=(1-p)^4\left[(1-p)^2 + 6 p(1-p) + p^2\right],\\
 	&=(1-p)^4\left[1-2p + p^2 + 6 p-6p^2 + p^2\right],\\
-	&=(1-p)^4\left[1-2p + p^2 + 6 p-6p^2 + p^2\right],\\
 	&=(1-p)^4\left[1+4p-4p^2\right],\\
 	&=(1-p)^4\left[1+4p(1-p)\right].
 \end{align*}
@@ -101,3 +100,4 @@ Therefore,
 \[
 	P_{err} = 1 - (1-p)^4\left[1+4p(1-p)\right].
 \]
+\clearpage
